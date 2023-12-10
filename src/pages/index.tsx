@@ -1,9 +1,14 @@
-import  "../styles/global.css";
+import { InputForm } from '../components/input_form';
 
 export default function Home() {
   return (
-    <main className="text-blue-300">
-        <h1>Hello World</h1>
+    <main className="flex justify-center flex-col">
+      <div className="m-5">
+          <h1 className="text-4xl font-bold text-center">Redis Client App</h1>
+      </div>
+      <div>
+        <InputForm />
+      </div>
     </main>
   )
 }

@@ -1,4 +1,5 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Note: This is a sample code to demonstrate how to use Redis with Next.js API routes. It is not intended to be used in production.
 
 ## Getting Started
 
