@@ -1,32 +1,54 @@
 import { TextInput, Button, Box } from "@mantine/core";
 import { useForm } from "@mantine/form";
 
+
+function submitForm(values : any ) {
+  console.log(values);
+
+  fetch("http://localhost:3000/api/postform", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(values),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("Success:", data);
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
+}
+
 function InputForm() {
   const form = useForm({
     initialValues: {
-      key: "",
-      value: "",
+      inputKey: "",
+      inputValue: "",
     },
 
     validate: {
-      key: (value) => (value ? null : "Invalid input"),
-      value: (value) => (value ? null : "Invalid input"),
+      inputKey: (value) => (value ? null : "Invalid input"),
+      inputValue: (value) => (value ? null : "Invalid input"),
     },
   });
 
   return (
     <Box maw={340} mx="auto">
-      <form onSubmit={form.onSubmit((values) => console.log(values))}>
+      <form onSubmit={form.onSubmit((values) => {
+        submitForm(values);
+      })}>
         <TextInput
           label="Key"
           placeholder="Enter your key"
-          {...form.getInputProps("key")}
+          {...form.getInputProps("inputKey")}
         />
 
         <TextInput
           label="Value"
           placeholder="Enter your value"
-          {...form.getInputProps("value")}
+          {...form.getInputProps("inputValue")}
         />
 
         <Button
