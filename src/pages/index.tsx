@@ -1,4 +1,5 @@
 import { InputForm } from '../components/input_form';
+import { PreviewData } from '../components/dataPreview';
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
       </div>
       <div>
         <InputForm />
+        <PreviewData />
       </div>
     </main>
   )
