@@ -22,14 +22,17 @@ export default async function handler(
   await client.connect();
 
   try {
-    const { inputKey, inputValue } = req.body;
+    const keys = await client.keys("*");
+    const keyValuePairs: { [key: string]: any } = {};
 
-    await client.set(inputKey, JSON.stringify(inputValue));
-    res.status(200).json({ message: "It was a success!" });
-
+    for (const key of keys) {
+      const value = await client.get(key);
+      keyValuePairs[key] = JSON.parse(value!);
+    }
+    console.log(keyValuePairs);
     client.quit();
   } catch (error) {
-    console.error("Error setting data in Redis:", error);
+    console.error("Error getting data from redis", error);
     res.status(500).json({ message: "It was a failure!" });
     client.quit();
   }

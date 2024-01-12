@@ -1,8 +1,7 @@
 import { TextInput, Button, Box } from "@mantine/core";
 import { useForm } from "@mantine/form";
 
-
-function submitForm(values : any ) {
+function submitForm(values: any) {
   console.log(values);
 
   fetch("http://localhost:3000/api/postform", {
@@ -36,9 +35,11 @@ function InputForm() {
 
   return (
     <Box maw={340} mx="auto">
-      <form onSubmit={form.onSubmit((values) => {
-        submitForm(values);
-      })}>
+      <form
+        onSubmit={form.onSubmit((values) => {
+          submitForm(values);
+        })}
+      >
         <TextInput
           label="Key"
           placeholder="Enter your key"
