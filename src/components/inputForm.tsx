@@ -14,10 +14,15 @@ function submitForm(values: any) {
     .then((response) => response.json())
     .then((data) => {
       console.log("Success:", data);
+      window.alert("Form submitted successfully!");
+      window.location.reload();
     })
     .catch((error) => {
       console.error("Error:", error);
+      window.alert("Error in form submission.");
     });
+
+   
 }
 
 function InputForm() {

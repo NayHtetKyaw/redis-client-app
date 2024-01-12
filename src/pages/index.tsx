@@ -1,4 +1,4 @@
-import { InputForm } from '../components/input_form';
+import { InputForm } from '../components/inputForm';
 import { PreviewData } from '../components/dataPreview';
 
 export default function Home() {
